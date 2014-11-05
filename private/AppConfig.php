@@ -32,13 +32,18 @@ $configs = array(
     ),
     "apple_apn" => array(
         "development_file" => "",
+        "development_link" => "",
+        "distribution_file" => "",
         "distribution_file" => ""
+    ),
+    "android" => array(
+        "key" => ""
     ),
     "olo" => array(
         "version" => "1.0"
     ) ,
     "views" => array(
-        
+
     )
 );
 
