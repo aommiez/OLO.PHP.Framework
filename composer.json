@@ -14,6 +14,7 @@
         "altorouter/altorouter": "v1.1.0",
         "mashape/unirest-php": "dev-master",
         "vlucas/valitron": "1.1.7",
-        "facebook/php-sdk-v4": "4.0.11"
+        "facebook/php-sdk-v4": "4.0.11",
+        "doctrine/orm": "2.4.0-RC2"
     }
 }
