@@ -7,6 +7,7 @@ class MongoDB {
 
     /** @var  \MongoClient $mongo */
     private static $mongo, $db;
+
     public static function getMongo(){
         if(is_null(self::$mongo)){
             self::$mongo = new \MongoClient(AppConfig::get("db.mongodb.host"));
