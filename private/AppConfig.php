@@ -14,7 +14,8 @@ $configs = array(
         "base_url" => "",
         "site_url" => "",
         "share_url" => "",
-        "directory" => dirname(__FILE__)
+        "directory" => dirname(__FILE__),
+        "view" => "default"
     ),
     "db" => array(
         "mongodb" => array(
