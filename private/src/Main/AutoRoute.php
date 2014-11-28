@@ -12,6 +12,7 @@ namespace Main;
 use DocBlock\Parser;
 use Main\Event\Event;
 use Main\Http\RequestInfo;
+use Main\View\BaseView;
 
 
 class AutoRoute {
@@ -19,26 +20,25 @@ class AutoRoute {
         $route = self::mapAllCTL();
         $match = $route->match();
 
-//        ob_end_clean();
-//        header("Connection: close");
-//        ignore_user_abort(); // optional
-//        ob_start();
-
         if($match['target']){
             $reqInfo = RequestInfo::loadFromGlobal(array("url_params"=> $match['params']));
             $ctl = new $match['target']['c']($reqInfo);
             $response = $ctl->{$match['target']['a']}();
-            //header("Content-type: application/json");
-            //echo json_encode($response);
+            if($response instanceof BaseView){
+                header("Content-type: application/json");
+                $response->render();
+            }
+            else if(is_array($response) || is_object($response)) {
+                header("Content-type: application/json");
+                echo json_encode($response);
+            }
+            else {
+                echo $response;
+            }
         }
         else {
             header("HTTP/1.0 404 Not Found");
         }
-//
-//        $size = ob_get_length();
-//        header("Content-Length: $size");
-//        ob_end_flush(); // Strange behaviour, will not work
-//        flush();            // Unless both are called !
 
         // fire event after_response
         Event::trigger('after_response');
