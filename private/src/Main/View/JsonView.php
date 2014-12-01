@@ -9,7 +9,7 @@
 namespace Main\View;
 
 
-class HtmlView extends BaseView {
+class JsonView extends BaseView {
     protected $val = null, $options = [];
     public function __construct($val, $options = [])
     {
