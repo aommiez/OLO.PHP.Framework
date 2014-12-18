@@ -29,19 +29,36 @@ $configs = array(
             "name" => "",
             "user" => "",
             "password" => ""
+        ),
+        "medoo" => array(
+            "master"=> array(
+                "database_type"=> "mysql",
+                "database_name" => "",
+                "server" => "localhost",
+                "username" => '',
+                'password' => '',
+
+                // optional
+                'port' => 3306,
+                'charset' => 'utf8',
+                // driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
+                'option' => array(
+                    PDO::ATTR_CASE => PDO::CASE_NATURAL
+                )
+            )
+        ),
+        "apple_apn" => array(
+            "development_file" => "",
+            "development_link" => "",
+            "distribution_file" => "",
+            "distribution_link" => ""
         )
-    ),
-    "apple_apn" => array(
-        "development_file" => "",
-        "development_link" => "",
-        "distribution_file" => "",
-        "distribution_file" => ""
     ),
     "android" => array(
         "key" => ""
     ),
     "olo" => array(
-        "version" => "1.0"
+        "version" => "1.1"
     ) ,
     "views" => array(
 
