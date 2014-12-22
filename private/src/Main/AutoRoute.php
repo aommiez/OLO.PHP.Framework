@@ -49,8 +49,8 @@ class AutoRoute {
     public static function mapAllCTL(){
         $router = new \AltoRouter();
 
-        if($_SERVER['HTTP_HOST']== 'localhost' || $_SERVER['HTTP_HOST']== '192.168.0.111'){
-            $router->setBasePath('/rtsms');
+        if($_SERVER['HTTP_HOST']== 'localhost'){
+            $router->setBasePath('/test');
         }
         $ctls = self::readCTL();
         foreach($ctls as $ctl){
@@ -82,11 +82,14 @@ class AutoRoute {
 
             // is has uri annotation
             $classUriAnns = $class->getAnnotations("uri");
-            if (empty($classUriAnns))
-                continue;
+            if (empty($classUriAnns)){
+                $classUri = "";
+            }
+            else {
+                $classUri = $classUriAnns[0]->getValue();
+            }
 
             $className = $class->getName();
-            $classUri = isset($classUriAnns[0])? $classUriAnns[0]->getValue(): "";
 
             $methods = $class->getMethods();
             foreach ($methods as $method)
