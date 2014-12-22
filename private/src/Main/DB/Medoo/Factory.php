@@ -35,4 +35,4 @@ class Factory {
         }
         return self::$instances[$name];
     }
-} 
+}

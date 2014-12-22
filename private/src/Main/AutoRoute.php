@@ -86,7 +86,7 @@ class AutoRoute {
                 continue;
 
             $className = $class->getName();
-            $classUri = $classUriAnns[0]->getValue();
+            $classUri = isset($classUriAnns[0])? $classUriAnns[0]->getValue(): "";
 
             $methods = $class->getMethods();
             foreach ($methods as $method)
