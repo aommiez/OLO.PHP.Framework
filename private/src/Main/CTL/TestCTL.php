@@ -18,7 +18,7 @@ use Main\View\JsonView;
  * @Restful
  * @uri /test
  */
-class TestCTL {
+class TestCTL extends BaseCTL {
     /**
      * @GET
      */

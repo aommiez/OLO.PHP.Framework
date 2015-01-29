@@ -50,7 +50,7 @@ class AutoRoute {
         $router = new \AltoRouter();
 
         $basePath = AppConfig::get("route.base_path");
-        if(is_null($basePath) || trim($basePath) == ""){
+        if(!is_null($basePath) && trim($basePath) != ""){
             $router->setBasePath($basePath);
         }
 
