@@ -112,4 +112,12 @@ class RequestInfo {
     {
         return $this->url_params[$name];
     }
+
+    public function file($name){
+        return isset($this->files[$name])? $this->files[$name]: null;
+    }
+
+    public function files(){
+        return $this->files;
+    }
 }
