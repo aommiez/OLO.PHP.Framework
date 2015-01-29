@@ -20,11 +20,11 @@ use Main\View\JsonView;
  */
 class TestCTL extends BaseCTL {
     /**
-     * @GET
+     * @PUT
      */
     public function getTest(){
         // if PHP under version 5.4 use return new JsonView(array("message"=> "test"));
-        return new JsonView(["message"=> "test"]);
+        return ($this->reqInfo->params());
     }
 
     /**
