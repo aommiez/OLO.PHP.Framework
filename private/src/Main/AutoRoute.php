@@ -25,7 +25,6 @@ class AutoRoute {
             $ctl = new $match['target']['c']($reqInfo);
             $response = $ctl->{$match['target']['a']}();
             if($response instanceof BaseView){
-                header("Content-type: application/json");
                 $response->render();
             }
             else if(is_array($response) || is_object($response)) {
